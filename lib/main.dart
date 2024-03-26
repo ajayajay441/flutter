@@ -1,7 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:my_app/ui/loader.dart';
+import 'package:horeb_telugu_reference_bible/ui/navigation_tabs.dart';
+import 'package:horeb_telugu_reference_bible/ui/page_corner_bg.dart';
+// import 'package:horeb_telugu_reference_bible/pages/loader/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +14,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return const LoadingPage();
     return MaterialApp(
-      // debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        canvasColor: const Color.fromARGB(255, 232, 232, 232),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            // Add background image
+            pageBackgroundImage(),
+            // Your app content goes here
+            const BottomNavBar(),
+          ],
+        ),
       ),
-      home: const Loader(),
     );
   }
 }
