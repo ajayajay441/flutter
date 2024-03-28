@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horeb_telugu_reference_bible/pages/book/index.dart';
-import 'package:horeb_telugu_reference_bible/pages/books/books_list.dart';
+import 'package:horeb_telugu_reference_bible/pages/books/books_list_page.dart';
 
 class BooksPage extends StatelessWidget {
   const BooksPage({super.key});
@@ -15,7 +15,7 @@ class BooksPage extends StatelessWidget {
           case '/':
             builder = (context) => const BooksList();
             break;
-          case '/book':
+          case '/book/:id':
             builder = (context) => const Book();
             break;
           default:

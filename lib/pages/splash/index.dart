@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:horeb_telugu_reference_bible/ui/bottomnav/navigation_tabs.dart';
-import 'package:horeb_telugu_reference_bible/ui/splash/owner.dart';
+import 'package:horeb_telugu_reference_bible/ui/splash/owner_widget.dart';
 import 'package:horeb_telugu_reference_bible/ui/theme_data.dart';
-import 'package:horeb_telugu_reference_bible/ui/splash/contact.dart';
+import 'package:horeb_telugu_reference_bible/ui/splash/contact_widget.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

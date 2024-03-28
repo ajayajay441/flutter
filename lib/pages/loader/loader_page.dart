@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:horeb_telugu_reference_bible/pages/loader/spinner.dart';
+import 'package:horeb_telugu_reference_bible/ui/loader/spinner_widget.dart';
 
 class Loader extends StatefulWidget {
   final VoidCallback onLoadEnd; // Define a callback function

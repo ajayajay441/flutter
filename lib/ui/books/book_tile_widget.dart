@@ -3,13 +3,13 @@
 import 'package:flutter/material.dart';
 
 class BookTile extends StatefulWidget {
-  final VoidCallback onClick;
-  final book;
+  final dynamic book;
+  final void Function(dynamic) callback;
 
   const BookTile({
     super.key,
     required this.book,
-    required this.onClick,
+    required this.callback,
   });
 
   @override
@@ -17,28 +17,24 @@ class BookTile extends StatefulWidget {
 }
 
 class _BookTileState extends State<BookTile> {
-  Color backgroundColor = Colors.blue;
+  Color backgroundColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapDown: (_) {
+      onTap: () {
         setState(() {
-          backgroundColor = Colors.red; // Change background color on tap down
+          backgroundColor =
+              const Color(0xFFF7EFE9); // Change background color on tap down
         });
-      },
-      onTapUp: (_) {
-        setState(() {
-          backgroundColor = Colors.blue; // Reset background color on tap up
-        });
-        widget.onClick(); // Call the click function
+        widget.callback(widget.book);
       },
       child: Container(
           width: double.infinity, // Width 100%
           padding: const EdgeInsets.all(8.0),
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: backgroundColor,
               borderRadius: BorderRadius.circular(8.0),
               boxShadow: const [
                 BoxShadow(

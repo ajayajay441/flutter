@@ -1,9 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:horeb_telugu_reference_bible/ui/loader/bg_shape.dart';
-import 'package:horeb_telugu_reference_bible/pages/loader/loader.dart';
-import 'package:horeb_telugu_reference_bible/ui/loader/logo.dart';
+import 'package:horeb_telugu_reference_bible/ui/loader/bg_shape_widget.dart';
+import 'package:horeb_telugu_reference_bible/pages/loader/loader_page.dart';
+import 'package:horeb_telugu_reference_bible/ui/loader/logo_widget.dart';
 import 'package:horeb_telugu_reference_bible/pages/splash/index.dart';
 import 'package:horeb_telugu_reference_bible/ui/theme_data.dart';
 
