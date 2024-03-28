@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horeb_telugu_reference_bible/pages/book/index.dart';
 import 'package:horeb_telugu_reference_bible/ui/books/appbar_widget.dart';
 import 'package:horeb_telugu_reference_bible/ui/books/books_list_widget.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/page_corner_bg_widget.dart';
@@ -29,7 +30,9 @@ class BooksList extends StatelessWidget {
                     children: [
                       const CustomAppBar(),
                       BooksListView(
-                        onChildAction: parentMethod, // Pass the callback here
+                        onChildAction: (book) {
+                          parentMethod(book, context);
+                        }, // Pass the callback here
                       ),
                     ],
                   ),
@@ -43,7 +46,17 @@ class BooksList extends StatelessWidget {
   }
 
   // Define the callback method here
-  void parentMethod(dynamic book) {
-    print(book);
+  void parentMethod(dynamic book, BuildContext context) {
+    var id = book["id"].toString();
+    Navigator.pushNamed(
+      context,
+      '/book',
+      arguments: {'id': id},
+    );
+    // Navigator.push(context, MaterialPageRoute<void>(
+    //   builder: (BuildContext context) {
+    //     return BookPage(id: id);
+    //   },
+    // ));
   }
 }
