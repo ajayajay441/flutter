@@ -1,10 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:horeb_telugu_reference_bible/pages/splash/contact.dart';
-import 'package:horeb_telugu_reference_bible/pages/splash/owner.dart';
-import 'package:horeb_telugu_reference_bible/ui/navigation_tabs.dart';
+import 'package:horeb_telugu_reference_bible/ui/bottomnav/navigation_tabs.dart';
+import 'package:horeb_telugu_reference_bible/ui/splash/owner.dart';
 import 'package:horeb_telugu_reference_bible/ui/theme_data.dart';
+import 'package:horeb_telugu_reference_bible/ui/splash/contact.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -49,8 +49,8 @@ class _SplashPageState extends State<SplashPage> {
                   const SizedBox(
                     height: 75,
                   ),
-                  const Owner(),
-                  const Contact(),
+                  owner(),
+                  contact(),
                   const SizedBox(
                     height: 75,
                   ),

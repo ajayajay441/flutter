@@ -64,6 +64,7 @@ flutter:
     - assets/loader_bg.svg
     - assets/logo_light.png
     - assets/page_corner.svg
+    - assets/data/books.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
