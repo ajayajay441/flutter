@@ -45,7 +45,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         color: const Color(0xFFA0642F), // icon color
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF4F3F3), //Colors.white,
         height: 50,
         items: <Widget>[
           buildIcon(Icons.menu_book, 0),

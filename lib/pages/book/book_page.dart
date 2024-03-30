@@ -17,6 +17,7 @@ class BookPage extends StatelessWidget {
           // Page content
           Center(
             child: Container(
+              color: const Color(0xFFF4F3F3),
               width: double.infinity, // Width 100%
               padding: const EdgeInsets.all(8.0),
               child: Center(

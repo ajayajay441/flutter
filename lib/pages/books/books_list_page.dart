@@ -11,7 +11,7 @@ class BooksList extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF4F3F3),
         body: Stack(
           fit: StackFit.expand,
           children: [
