@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:horeb_telugu_reference_bible/pages/books/index.dart';
+import 'package:horeb_telugu_reference_bible/pages/books/routes.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/page_corner_bg_widget.dart';
 import 'package:horeb_telugu_reference_bible/ui/bottomnav/navbar_icon_widget.dart';
 

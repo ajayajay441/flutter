@@ -15,11 +15,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           CircleAvatar(
             backgroundColor: Colors.brown,
-            child: Text('JD', style: TextStyle(color: Colors.white)),
+            child: Text('AA', style: TextStyle(color: Colors.white)),
           ),
           SizedBox(width: 8),
           Text(
-            'John Doe',
+            'Ansie Arik',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,

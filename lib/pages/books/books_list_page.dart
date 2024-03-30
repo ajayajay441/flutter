@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:horeb_telugu_reference_bible/pages/book/index.dart';
 import 'package:horeb_telugu_reference_bible/ui/books/appbar_widget.dart';
 import 'package:horeb_telugu_reference_bible/ui/books/books_list_widget.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/page_corner_bg_widget.dart';
@@ -53,10 +52,5 @@ class BooksList extends StatelessWidget {
       '/book',
       arguments: {'id': id},
     );
-    // Navigator.push(context, MaterialPageRoute<void>(
-    //   builder: (BuildContext context) {
-    //     return BookPage(id: id);
-    //   },
-    // ));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:horeb_telugu_reference_bible/pages/book/index.dart';
+import 'package:horeb_telugu_reference_bible/pages/book/book_page.dart';
 import 'package:horeb_telugu_reference_bible/pages/books/books_list_page.dart';
 
 class BooksPage extends StatelessWidget {
@@ -11,7 +11,6 @@ class BooksPage extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: (settings) {
         WidgetBuilder builder;
-        print('settings.name ${settings.name}');
         switch (settings.name) {
           case '/':
             builder = (context) => const BooksList();
@@ -23,6 +22,13 @@ class BooksPage extends StatelessWidget {
               return BookPage(id: id); // Pass ID to BookPage constructor
             };
             break;
+          // case '/xrefs':
+          //   builder = (context) {
+          //     final args = settings.arguments as Map<String, dynamic>;
+          //     final id = args['id'] as String; // Extract ID from arguments
+          //     return XrefsPage(id: id); // Pass ID to BookPage constructor
+          //   };
+          //   break;
           default:
             throw Exception('Invalid route: ${settings.name}');
         }
