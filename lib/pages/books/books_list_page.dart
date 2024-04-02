@@ -30,7 +30,7 @@ class BooksList extends StatelessWidget {
                       const CustomAppBar(),
                       BooksListView(
                         onChildAction: (book) {
-                          parentMethod(book, context);
+                          openBook(book, context);
                         }, // Pass the callback here
                       ),
                     ],
@@ -45,12 +45,12 @@ class BooksList extends StatelessWidget {
   }
 
   // Define the callback method here
-  void parentMethod(dynamic book, BuildContext context) {
-    var id = book["id"].toString();
+  void openBook(book, BuildContext context) {
+    var bookId = book["id"];
     Navigator.pushNamed(
       context,
       '/book',
-      arguments: {'id': id},
+      arguments: {'bookId': bookId},
     );
   }
 }

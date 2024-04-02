@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BookPageAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String id;
+  final String bookName;
 
-  const BookPageAppBar({super.key, required this.id});
+  const BookPageAppBar({super.key, required this.bookName});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class BookPageAppBar extends StatelessWidget implements PreferredSizeWidget {
           automaticallyImplyLeading:
               false, // Set this to false to hide the back arrow icon
           centerTitle: false, // Set centerTitle to false
-          title: Text(id,
+          title: Text(bookName,
               style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,

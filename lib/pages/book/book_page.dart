@@ -1,14 +1,18 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:horeb_telugu_reference_bible/ui/book/sidemenu_trigger.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/book_page_app_bar.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/page_corner_bg_widget.dart';
 
 class BookPage extends StatefulWidget {
-  final String id;
+  final int bookId;
+  final int? chapter;
 
-  const BookPage({super.key, required this.id});
+  const BookPage({super.key, required this.bookId, this.chapter = 1});
 
   @override
   _BookPageState createState() => _BookPageState();
@@ -16,7 +20,29 @@ class BookPage extends StatefulWidget {
 
 class _BookPageState extends State<BookPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  // bool _isExpanded = false;
+  int selectedChapter = 1;
+  dynamic book;
+
+  List<dynamic> books = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    try {
+      final response = await rootBundle.loadString('assets/data/books.json');
+      setState(() {
+        books = jsonDecode(response);
+        book = getBook(books, widget.bookId);
+        print('bookName ${book["name"]}');
+      });
+    } catch (error) {
+      print("Error fetching data: $error");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +63,7 @@ class _BookPageState extends State<BookPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BookPageAppBar(id: widget.id),
-                    Text(widget.id),
+                    BookPageAppBar(bookName: book?["name"] ?? 'Loading...'),
                   ],
                 ),
               ),
@@ -59,31 +84,40 @@ class _BookPageState extends State<BookPage> {
               ),
               child: Stack(fit: StackFit.expand, children: [
                 pageBackgroundImage(),
-                const Column(
+                Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Genesis',
-                          style: TextStyle(
+                      Text('${book?["name"] ?? "Loading..."}',
+                          style: const TextStyle(
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Chathura')),
-                      Text('20 Chapters',
-                          style:
-                              TextStyle(fontSize: 28, fontFamily: 'Chathura'))
+                      Text('${book?["chapters"] ?? "0"} Chapters',
+                          style: const TextStyle(
+                              fontSize: 28, fontFamily: 'Chathura'))
                     ]),
               ]),
             ),
             // List
             Expanded(
               child: ListView.builder(
-                itemCount: 10, // Size of the array
+                itemCount: book?["chapters"] ?? 0, // Size of the array
                 itemBuilder: (context, index) {
                   return ListTile(
-                    // tileColor: const Color(0xFFF4F3F3),
-                    title: Text('Item ${index + 1}'),
+                    selected: selectedChapter == index + 1,
+                    selectedTileColor: const Color(0xFFA0642F),
+                    selectedColor: selectedChapter == index + 1
+                        ? Colors.white70
+                        : Colors.black38,
+                    tileColor: const Color(0xFFF4F3F3),
+                    title: Text('${index + 1} వ అథ్యాయము',
+                        style:
+                            const TextStyle(fontFamily: 'JIMS', fontSize: 24)),
                     onTap: () {
-                      // Handle onTap for each ListTile
+                      setState(() {
+                        selectedChapter = index + 1;
+                      });
                     },
                   );
                 },
@@ -93,5 +127,14 @@ class _BookPageState extends State<BookPage> {
         ),
       ),
     );
+  }
+
+  Map<String, dynamic> getBook(books, int id) {
+    for (var book in books) {
+      if (book['id'] == id) {
+        return book;
+      }
+    }
+    return {}; // Return null if ID not found
   }
 }
