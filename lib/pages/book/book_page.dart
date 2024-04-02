@@ -4,15 +4,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:horeb_telugu_reference_bible/pages/book/chapter_page.dart';
 import 'package:horeb_telugu_reference_bible/ui/book/sidemenu_trigger.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/book_page_app_bar.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/page_corner_bg_widget.dart';
 
 class BookPage extends StatefulWidget {
   final int bookId;
-  final int? chapter;
 
-  const BookPage({super.key, required this.bookId, this.chapter = 1});
+  const BookPage({super.key, required this.bookId});
 
   @override
   _BookPageState createState() => _BookPageState();
@@ -37,10 +37,9 @@ class _BookPageState extends State<BookPage> {
       setState(() {
         books = jsonDecode(response);
         book = getBook(books, widget.bookId);
-        print('bookName ${book["name"]}');
       });
     } catch (error) {
-      print("Error fetching data: $error");
+      // print("Error fetching data: $error");
     }
   }
 
@@ -63,7 +62,18 @@ class _BookPageState extends State<BookPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BookPageAppBar(bookName: book?["name"] ?? 'Loading...'),
+                    BookPageAppBar(
+                        bookName: book?["name"] ?? 'Loading...',
+                        selectedChapter: selectedChapter),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Expanded(
+                      child: ChapterPage(
+                        bookId: widget.bookId,
+                        chapterNumber: selectedChapter,
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -93,9 +103,9 @@ class _BookPageState extends State<BookPage> {
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Chathura')),
-                      Text('${book?["chapters"] ?? "0"} Chapters',
+                      Text('${book?["chapters"] ?? "0"} అథ్యాయములు',
                           style: const TextStyle(
-                              fontSize: 28, fontFamily: 'Chathura'))
+                              fontSize: 24, fontFamily: 'Chathura'))
                     ]),
               ]),
             ),
@@ -112,11 +122,12 @@ class _BookPageState extends State<BookPage> {
                         : Colors.black38,
                     tileColor: const Color(0xFFF4F3F3),
                     title: Text('${index + 1} వ అథ్యాయము',
-                        style:
-                            const TextStyle(fontFamily: 'JIMS', fontSize: 24)),
+                        style: const TextStyle(
+                            fontFamily: 'Mandali', fontSize: 18)),
                     onTap: () {
                       setState(() {
                         selectedChapter = index + 1;
+                        _scaffoldKey.currentState?.closeDrawer();
                       });
                     },
                   );

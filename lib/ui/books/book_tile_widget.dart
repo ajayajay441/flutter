@@ -32,7 +32,7 @@ class _BookTileState extends State<BookTile> {
       child: Container(
           width: double.infinity, // Width 100%
           padding: const EdgeInsets.all(8.0),
-          margin: const EdgeInsets.all(8),
+          margin: const EdgeInsets.only(left: 8, top: 12, right: 8, bottom: 12),
           decoration: BoxDecoration(
               color: backgroundColor,
               borderRadius: BorderRadius.circular(8.0),

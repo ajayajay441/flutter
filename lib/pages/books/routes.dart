@@ -19,11 +19,8 @@ class BooksPage extends StatelessWidget {
             builder = (context) {
               final args = settings.arguments as Map<String, dynamic>;
               final bookId = args['bookId'] as int;
-
-              final chapter = args['chapter'] as int;
               return BookPage(
-                  bookId: bookId,
-                  chapter: chapter); // Pass ID to BookPage constructor
+                  bookId: bookId); // Pass ID to BookPage constructor
             };
             break;
           // case '/xrefs':

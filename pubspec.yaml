@@ -66,6 +66,7 @@ flutter:
     - assets/logo_light.png
     - assets/page_corner.svg
     - assets/data/books.json
+    - assets/data/verses.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -89,9 +90,9 @@ flutter:
         - asset: fonts/Chathura-Bold.ttf
         - asset: fonts/Chathura-Regular.ttf
           weight: 700
-    - family: JIMS
+    - family: Mandali
       fonts:
-        - asset: fonts/JIMS Regular.otf
+        - asset: fonts/Mandali Regular.otf
 
     # - family: Trajan Pro
     #   fonts:
