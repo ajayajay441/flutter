@@ -32,6 +32,9 @@ class BookPageAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
               ),
             )),
+        const SizedBox(
+          height: 16,
+        ),
         AppBar(
             backgroundColor: Colors.transparent,
             toolbarHeight: kToolbarHeight,

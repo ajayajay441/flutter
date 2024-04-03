@@ -33,6 +33,7 @@ class BooksList extends StatelessWidget {
                           openBook(book, context);
                         }, // Pass the callback here
                       ),
+                      const SizedBox(height: 8)
                     ],
                   ),
                 ),
@@ -50,7 +51,7 @@ class BooksList extends StatelessWidget {
     Navigator.pushNamed(
       context,
       '/book',
-      arguments: {'bookId': bookId},
+      arguments: {'bookId': bookId, 'chapterNumber': 1},
     );
   }
 }
