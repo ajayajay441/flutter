@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:horeb_telugu_reference_bible/pages/book/chapter_page.dart';
 import 'package:horeb_telugu_reference_bible/ui/book/chapters_drawer.dart';
 import 'package:horeb_telugu_reference_bible/ui/book/sidemenu_trigger.dart';
-import 'package:horeb_telugu_reference_bible/ui/common/book_page_app_bar.dart';
+import 'package:horeb_telugu_reference_bible/ui/book/book_page_app_bar.dart';
 import 'package:horeb_telugu_reference_bible/ui/common/page_corner_bg_widget.dart';
 
 // ignore: must_be_immutable
