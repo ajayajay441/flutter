@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/logo.png
     - assets/loader_bg.svg
+    - assets/text_bg.svg
     - assets/logo_light.png
     - assets/page_corner.svg
     - assets/data/books.json

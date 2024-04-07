@@ -59,12 +59,19 @@ class _ChapterPageState extends State<ChapterPage> {
       itemCount: verses.length, // Size of the array
       itemBuilder: (context, index) {
         return ListTile(
-          tileColor: const Color(0xFFF4F3F3),
-          title: Text('${index + 1}. ${verses[index]}',
+          tileColor: const Color.fromRGBO(
+              0, 0, 0, 0), // Transparent background for ListTile
+          title: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: SelectableText(
+              '${index + 1}. ${verses[index]}',
               style: const TextStyle(
-                  fontFamily: 'Mandali',
-                  fontSize: 18,
-                  color: Color(0xFF100A05))),
+                fontFamily: 'Mandali',
+                fontSize: 18,
+                color: Color(0xFF100A05),
+              ),
+            ),
+          ),
         );
       },
     );

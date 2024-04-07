@@ -62,13 +62,20 @@ class _BookTileState extends State<BookTile> {
                         const TextStyle(fontSize: 16, fontFamily: 'Chathura'),
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    '${widget.book['shortName'] ?? widget.book['name']}',
-                    style: const TextStyle(
+                  Expanded(
+                    child: Text(
+                      '${widget.book['shortName'] ?? widget.book['name']}',
+                      overflow:
+                          TextOverflow.ellipsis, // Change overflow to ellipsis
+                      maxLines:
+                          1, // Set maxLines to 1 to limit text to one line
+                      style: const TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'Chathura'),
-                  )
+                        fontFamily: 'Chathura',
+                      ),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 4), // Space between header and sub-header
