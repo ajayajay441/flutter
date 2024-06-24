@@ -23,6 +23,9 @@ class _ChapterPageState extends State<ChapterPage> {
   List<dynamic> verses = [];
   int versesCount = 0;
 
+  late String _selectedItem;
+  bool _showOptions = false;
+
   @override
   void initState() {
     super.initState();
@@ -58,12 +61,11 @@ class _ChapterPageState extends State<ChapterPage> {
     return ListView.builder(
       itemCount: verses.length, // Size of the array
       itemBuilder: (context, index) {
-        return ListTile(
-          tileColor: const Color.fromRGBO(
-              0, 0, 0, 0), // Transparent background for ListTile
-          title: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: SelectableText(
+        return Column(children: [
+          ListTile(
+            tileColor: const Color.fromRGBO(
+                0, 0, 0, 0), // Transparent background for ListTile
+            title: SelectableText(
               '${index + 1}. ${verses[index]}',
               style: const TextStyle(
                 fontFamily: 'Mandali',
@@ -71,8 +73,40 @@ class _ChapterPageState extends State<ChapterPage> {
                 color: Color(0xFF100A05),
               ),
             ),
+            onTap: () {
+              setState(() {
+                _selectedItem = verses[index];
+                _showOptions = true; // Show options when item is tapped
+              });
+            },
           ),
-        );
+          if (_showOptions)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Options for $_selectedItem:',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                ListTile(
+                  title: Text('Option 1'),
+                  onTap: () {
+                    // Perform action for Option 1
+                  },
+                ),
+                ListTile(
+                  title: Text('Option 2'),
+                  onTap: () {
+                    // Perform action for Option 2
+                  },
+                ),
+              ],
+            )
+        ]);
       },
     );
   }
